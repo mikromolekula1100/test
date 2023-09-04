@@ -1,26 +1,86 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div className="App">
+  <nav>
+    <img :src="navpic"/>
+    <button v-on:click="goToVisualization">Визуализация</button>
+    <button v-on:click="goToTimeline">План-график</button>
+  </nav>
+
+
+  <div className="display">
+    <RouterView/>
+  </div>
+
+
+
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import navpic from "./assets/navpic.png"
 
-export default {
+
+export default {  
   name: 'App',
   components: {
-    HelloWorld
+
+  },
+  data(){
+    return{
+      navpic: navpic
+    };
+  },
+  mounted(){
+
+  },
+  methods: {
+    goToVisualization(){
+      this.$router.push('/visualization')
+    },
+    goToTimeline(){
+      this.$router.push('/timeline')
+    }
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+h2{
+  margin: 0px;
 }
+.App{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: white;
+}
+
+nav{
+  display: inline-block;
+  width: 20vw;
+  height: 100vh;
+  background-color: rgb(39, 41, 43);
+  text-align: center;
+  border-right: 20px;
+}
+nav button{
+  display: block;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(39, 41, 43);
+  color: white;
+  border-radius: 10px;
+  font-size: 14px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: black;
+}
+nav img{
+  width: 200px;
+  height: 150px;
+}
+
+
 </style>
