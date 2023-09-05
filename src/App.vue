@@ -10,15 +10,11 @@
   <div className="display">
     <RouterView/>
   </div>
-
-
-
 </div>
 </template>
 
 <script>
 import navpic from "./assets/navpic.png"
-
 
 export default {  
   name: 'App',
@@ -49,6 +45,8 @@ export default {
 h2{
   margin: 0px;
 }
+
+
 .App{
   display: flex;
   flex-direction: row;

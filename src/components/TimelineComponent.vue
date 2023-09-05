@@ -1,46 +1,48 @@
 <template>
-    <div className="timelineComponent">
-        <h2>План-график</h2>
+    <div id="timelineComponent">
+        
     </div>
 </template>
 
 <script>
+import shootData from "../../public/shoot.json"
 
 
 export default {
     name: 'timelineComponent',
     data(){
         return{
-            shoot: [],
+            shoot: shootData,
         }
     },
     mounted(){
-        this.getShoot();
 
-        console.log(this.shoot)
+        console.log(this.$data.shoot);
     },
     methods:{
-        async getShoot(){
-            var shoot;
-            var shootUpd = [];
+        /*createTimeline(){
+            var newShoot = [];
 
-            const res = await fetch("http://localhost:3000/shoot");
-
-            shoot = await res.json();
-
-            for(var i = 0; i < shoot.length; i++){
-                shootUpd[i] = 
+            for(var i = 0; i < this.$data.shoot.length; i++){
+                newShoot[i] = 
                 {
-                    id: shoot[i].id, 
-                    content: shoot[i].satellite + " " + shoot[i].point + " " + shoot[i].volume,
-                    start: shoot[i].startTimePeriod,
-                    end: shoot[i].endTimePeriod
+                    id: this.$data.shoot[i].id, 
+                    content: this.$data.shoot[i].satellite + " " + this.$data.shoot[i].point + " " + this.$data.shoot[i].volume,
+                    start: this.$data.shoot[i].startTimePeriod,
+                    end: this.$data.shoot[i].endTimePeriod
                 }
             }
             
-            this.$data.shoot = shootUpd;
-            console.log(shootUpd)
-        }
+            var container = document.getElementById('timelineComponent');
+            var items = new DataSet(newShoot);
+            var options = {
+                width: '100%',
+                height: '100%',
+            };
+            var timeline = new Timeline(container, items, options);
+
+            console.log('timeline:', timeline);
+        }*/
     }
 
     
@@ -48,9 +50,13 @@ export default {
 </script>
 
 <style>
-.timelineComponent {
+#timelineComponent {
     width: 80vw;
     height: 100vh;
-    background-color: rgb(39, 41, 43);
+    background-color: black;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
 }
 </style>
